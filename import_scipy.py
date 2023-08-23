@@ -17,38 +17,13 @@ time = np.linspace(0., length, signal.shape[0])
 
 fftmax = np.max(fft)
 
-# for i, f in enumerate(fft):
-#     if f < 0.01*fftmax:
-#         fft[i] = 0
-
 percentages = fft/(fft.sum(axis=0)/2) * 100 #sum divided by two, the transform also takes place for negative values which are not used
 
-# fig, axs = plt.subplots(2)
-
-# audio waveform plots
-# axs[0].plot(time, signal[:, 0], label="Left channel")
-# axs[0].plot(time, signal[:, 1], label="Right channel")
-
-# axs[0].legend()
-
-# axs[0].xlabel("Time [s]")
-# axs[0].ylabel("Amplitude")
-
-# plt.show()
 onehz = 1/freqs[1] 
 binfr = [396, 417, 528, 639, 741, 852, 963]
 binfrnm = ['396 Hz', '417 Hz', '528 Hz', '639 Hz', '741 Hz', '852 Hz', '963 Hz']
 
 counts = np.zeros(7)
-
-# fft plots
-# fft[190]=0
-# plt.plot(freqs[range(len(fft)//16)], fft[range(len(fft)//16)])   
-# plt.subplot(freqs, fft[:, :1])                                                          
-# axs[1].xlabel('Frequency (Hz)')
-# axs[1].ylabel('Amplitude')
-# plt.show()
-# print(fft.sum(axis=0))
 
 fig, ax = plt.subplots()
 # print(percentages[round(65/freqs[1])])
@@ -68,15 +43,3 @@ plt.figtext(0.53,0.85,'Presence of frequencies: {}%'.format(presnc))
 plt.show()
 # print(np.argmax(percentages))
 
-
-
-
-
-# freqs spec:
-# liberate 396 Hz
-# cleanse 417
-# miracles 528
-# harmony 639
-# resolve 741
-# intuition 852
-# unity 963
