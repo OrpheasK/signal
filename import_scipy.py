@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 #based on code https://github.com/Metallicode/RandomProjects_IOT/blob/master/06_fft_analysis/python_fft.py
 
-s_rate, signal = wavfile.read("/Users/orpheas/audiofl/beau.wav") 
+s_rate, signal = wavfile.read("/Users/orpheas/audiofl/anoteshift.wav") 
 
 fft = abs(scipy.fft.fft(signal))
 # fft = fft[:, :1]
@@ -58,13 +58,13 @@ for i, centrfr in enumerate(binfr):
 
 print(counts)
 print(counts/counts.sum()*100)
-
+presnc = round(counts.sum(), 2)
 
 bar_colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:blue', 'tab:green', 'tab:orange']
 ax.bar(binfrnm, counts/counts.sum()*100, color=bar_colors)
 ax.set_xlabel('Frequency')
-ax.set_ylabel('Total percentage in song')
-plt.figtext(0.8,0.5,'fwr')
+ax.set_ylabel('Percentage')
+plt.figtext(0.53,0.85,'Presence of frequencies: {}%'.format(presnc))
 plt.show()
 # print(np.argmax(percentages))
 
