@@ -31,8 +31,8 @@ fig, ax = plt.subplots()
 for i, centrfr in enumerate(binfr):
     counts[i] = sum(percentages[round((centrfr-onehz/2)/freqs[1]):round((centrfr+onehz/2)/freqs[1])])
 
-print(counts)
-print(counts/counts.sum()*100)
+print(counts) #percentage of each frequency's presence in the audio file
+print(counts/counts.sum()*100) #total percentage of selected frequencies across the full frequency bandwidth
 presnc = round(counts.sum(), 2)
 
 bar_colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:blue', 'tab:green', 'tab:orange']
